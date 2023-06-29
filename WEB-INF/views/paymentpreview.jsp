@@ -26,9 +26,10 @@
 <body>
 <br/>
    <b><h3 align="center">Order Summary</h3></b>
-    <div id="id1">
+   <div id="div1">
+    <div id="id1" align="center">
         <div class="container mt-5">
-            <div class="row mt-4">
+            <div class="row mt-4" align="center">
                 <% custCredModel cust1 = (custCredModel) session.getAttribute("customer");
                 System.out.println("Customer spincode: "+cust1.getCustSpincode());
                 List<ProductStockPrice> products = (List<ProductStockPrice>) request.getAttribute("products");
@@ -75,15 +76,19 @@
 		    </form>
 		</div>
 
-       <div style="text-align: center;">
-		        <input type="number" id="tod" value="<%=ProductStockPrice.getTotal()%>" hidden>
+		<div style="text-align: center;">
+       <label>Total Order Cost:</label>
+		        <input type="number" id="tod" value="<%=ProductStockPrice.getTotal()%>">
+		        </div>
+		               <div style="text-align: center;">
 		    <label for="wallet">Use Wallet:</label>
-		    <input type="number" id="wallet" name="wallet" value="<%=Wallet.getAmount()%>">
+		    <input type="number" id="wallet" name="wallet" value="<%=Wallet.getAmount()%>" readonly>
 		    <input type="checkbox" id="walletAmount10" name="walletAmount" onclick="checkWalletAmount()">
+		</div>
 		</div>
 		<div style="text-align: center;">
 		    <div style="display: inline-block; text-align: center;">
-		        <label for="tid">Total Order Cost:</label>
+		        <label for="tid">Total amount to pay:</label>
 		        <input type="number" id="tid" value="<%=ProductStockPrice.getTotal()%>">
 		    </div>
 		    <br>

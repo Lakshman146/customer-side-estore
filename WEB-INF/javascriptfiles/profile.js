@@ -1,5 +1,5 @@
+// Function to add a product to the cart
 function addToCart(productId) {
-
   $.ajax({
     url: "addToCart",
     method: 'GET',
@@ -16,6 +16,7 @@ function addToCart(productId) {
   });
 }
 
+// Function to add a product to the wishlist
 function addToWishlist(productId) {
   $.ajax({
     url: "addToWishlist",
@@ -30,6 +31,7 @@ function addToWishlist(productId) {
   });
 }
 
+// Function to remove a product from the cart
 function removeFromCart(productId) {
   console.log("Remove from cart called");
   $.ajax({
@@ -45,6 +47,7 @@ function removeFromCart(productId) {
   });
 }
 
+// Function to remove a product from the wishlist
 function removeFromWishlist(productId) {
   console.log("Remove from wishlist called");
   $.ajax({
@@ -52,7 +55,7 @@ function removeFromWishlist(productId) {
     method: 'GET',
     data: { productId: productId },
     success: function(response) {
-      showCart();
+      showWishlist();
     },
     error: function(xhr, status, error) {
       console.log('AJAX Error: ' + error);
@@ -60,6 +63,7 @@ function removeFromWishlist(productId) {
   });
 }
 
+// Function to display the cart
 function showCart() {
   console.log("Show cart called");
   $.ajax({
@@ -75,6 +79,7 @@ function showCart() {
   });
 }
 
+// Function to display the wishlist
 function showWishlist() {
   $.ajax({
     url: "wishlistItems",
@@ -90,22 +95,14 @@ function showWishlist() {
   });
 }
 
-function buynow() {
-  console.log("Buy now");
-  var notAvailable = $(".not-available");
-  if (notAvailable.length > 0) {
-    alert("Please check the availability of all products before placing the order!");
-  } else {
-    window.location.href = "buycartitems";
-  }
-}
-
 $(document).ready(function() {
+  // Event handler for the 'buyid' click event
   $(document).on('click', '.buyid', function(event) {
     event.preventDefault();
     buynow();
   });
 
+  // Event handler for the 'addToCartButton' click event
   $(document).on('click', '.addToCartButton', function(event) {
     event.preventDefault();
     var productId = $(this).data('product-id');
@@ -113,6 +110,7 @@ $(document).ready(function() {
     addToCart(productId);
   });
 
+  // Event handler for the 'removeFromCart' click event
   $(document).on('click', '.removeFromCart', function(event) {
     event.preventDefault();
     var productId = $(this).data('product-id');
@@ -120,6 +118,7 @@ $(document).ready(function() {
     removeFromCart(productId);
   });
 
+  // Event handler for the 'addToWishlistButton' click event
   $(document).on('click', '.addToWishlistButton', function(event) {
     event.preventDefault();
     var productId = $(this).data('product-id');
@@ -127,6 +126,7 @@ $(document).ready(function() {
     addToWishlist(productId);
   });
 
+  // Event handler for the 'removeFromWishlist' click event
   $(document).on('click', '.removeFromWishlist', function(event) {
     event.preventDefault();
     var productId = $(this).data('product-id');
@@ -134,21 +134,25 @@ $(document).ready(function() {
     removeFromWishlist(productId);
   });
 
+  // Event handler for the 'cart-button' click event
   $('#cart-button').click(function() {
     showCart();
   });
 
+  // Event handler for the 'Wishlist-button' click event
   $('#Wishlist-button').click(function() {
     showWishlist();
   });
 });
 
+// Event handler for the 'checkCustomerOrders' click event
 $(document).on('click', '.checkCustomerOrders', function(event) {
   event.preventDefault();
   console.log("Entered customer orders profile");
   displayProfile();
 });
 
+// Function to display the customer orders
 function displayProfile() {
   $.ajax({
     url: "CustomerOrdersProfile",
@@ -162,5 +166,3 @@ function displayProfile() {
     }
   });
 }
-
-

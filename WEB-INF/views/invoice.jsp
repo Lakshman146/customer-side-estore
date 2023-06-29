@@ -9,21 +9,11 @@
     <meta charset="ISO-8859-1">
     <title>Invoice</title>
             <link rel="stylesheet" type="text/css" href="./css/invoice.css">
-    
-        <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+       <script src="./js/invoice.js"></script>
      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
 </head>
-<script>
-  function printInvoice(){
-console.log("printttttt");
-var printButton = document.getElementById('printButton');
-        printButton.style.display = 'none'; // Hide the button
-        window.print();
-        printButton.style.display = 'block'; // Restore the button after printing
-        window.location.href="loggedIn";
-    }
 
-</script>
 <body>
 <%
 custCredModel cust = (custCredModel) request.getAttribute("customer");

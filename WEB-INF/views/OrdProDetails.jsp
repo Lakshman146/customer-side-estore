@@ -62,8 +62,8 @@
                     <button class="btn btn-danger cancel-order-btn">Cancel Order</button>
                 </c:if>
             </div>
-        <input type="number" id="orderproId" value="${product.getId()}">
-<input type="number" id="orderId" value="${product.getOrdId()}">
+        <input type="number" id="orderproId" value="${product.getId()}" hidden>
+<input type="number" id="orderId" value="${product.getOrdId()}" hidden>
         </div>
     </div>
 

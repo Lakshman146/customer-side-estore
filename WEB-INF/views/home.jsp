@@ -21,7 +21,7 @@
   
 <script>
   var customerSession = {
-    customer: <%= session.getAttribute("customer") %>
+    customer: '<%= session.getAttribute("customer") %>'
   };
 </script>
 </head>

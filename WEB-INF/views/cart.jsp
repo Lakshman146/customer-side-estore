@@ -110,10 +110,7 @@
   <div id="tcost"></div>
   <button class="btn btn-primary BuyNow" onclick="buynow()">Place Order</button>
 </div>
-<script>
 
-
-</script>
 
 </body>
 </html>

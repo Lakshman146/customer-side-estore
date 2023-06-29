@@ -96,8 +96,7 @@
 	<mvc:resources mapping="/dcadmin/css/**" location="/WEB-INF/views/dcadmin/css/" />
 	<mvc:resources mapping="/dcadmin/js/**" location="/WEB-INF/views/dcadmin/js/" />
 
-	<mvc:resources mapping="/patient/css/**" location="/WEB-INF/views/patient/css/" />
-	<mvc:resources mapping="/patient/js/**" location="/WEB-INF/views/patient/js/" />
+
     
     
 </beans>

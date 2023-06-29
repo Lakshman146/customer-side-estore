@@ -1,3 +1,4 @@
+ //method to validate email
   function validateEmail()
    {
 	   var email = $("#email").val();
@@ -20,6 +21,7 @@
           }
         });
    }
+   //method to validate the sign in mail  is already sihn in or not
 function validateEmailsignin()
 {
 	   var email = $("#email").val();
@@ -44,7 +46,7 @@ function validateEmailsignin()
        }
      });
 }
-   
+   //function to validate the password is right or wrong
     function validatePassword() {
       var passwordInput = document.getElementById("password").value;
       console.log("Password: " + passwordInput);
@@ -61,6 +63,7 @@ function validateEmailsignin()
         return true;
       }
     }
+    //method for event listeners
 function usersignin()
 {
     document.querySelector(".userlogin-form-container").style.cssText = "display: none;";

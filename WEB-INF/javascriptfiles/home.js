@@ -1,4 +1,4 @@
-  
+//method to get the all categories when page is load  
     $(document).ready(function() {
       function loadCategories() {
         loadAllProducts();
@@ -13,7 +13,7 @@
           }
         });
       }
-
+//method to get all the products
       function loadAllProducts() {
         console.log("loadallproducts");
         $.ajax({
@@ -27,7 +27,7 @@
           }
         });
       }
-
+//method to add the product to cart
       function addToCart(productId,quantity) {
         $.ajax({
           url: "addToCart",
@@ -46,10 +46,13 @@
           }
         });
       }
+     //method to add the product to wishlist
+  
 function addToWishlist(productId) {
   if (customerSession.customer == null) {
+  alert("please signIn");
     window.location.href = "signIn";
-  } else {
+      } else {
     console.log("Add to wishlist called");
     $.ajax({
       url: "addToWishlist",
@@ -64,7 +67,7 @@ function addToWishlist(productId) {
     });
   }
 }
-
+//method to remove the product from cart
       function removeFromCart(productId) {
         console.log("Remove from cart called");
         $.ajax({
@@ -80,7 +83,7 @@ function addToWishlist(productId) {
           }
         });
       }
-
+//method to remove the product from wishlist
       function removeFromWishlist(productId) {
         console.log("Remove from wishlist called");
         $.ajax({
@@ -96,7 +99,7 @@ function addToWishlist(productId) {
           }
         });
       }
-
+//when user clicks on cart button this method get all the cart items
       function showCart() {
         $.ajax({
           url: "cartDisplay",
@@ -111,11 +114,12 @@ function addToWishlist(productId) {
           }
         });
       }
-
+//when user clicks on wishlist button this method get all the wishlist items
       function showWishlist() {
-    	  if (session.getAttribute("customer")==null) { 
-  	    window.location.href = "signIn";
-  	 }
+      if (customerSession.customer == null) {
+      alert("please signIn");
+    window.location.href = "signIn";
+  }
         else
         {
       
@@ -133,6 +137,7 @@ function addToWishlist(productId) {
         }
 
       }
+      //method to load all the products by category wise
      function loadProductsByCategory() {
     	 console.log("category selected");
     	  var category=document.getElementById("catg").value;
@@ -228,7 +233,7 @@ function addToWishlist(productId) {
       // Start the slideshow
       setInterval(nextSlide, 3000); // Change slide every 3 seconds
     });
-
+//this function used to get the product details
     function showProductDetails(productId) {
     	console.log("showproduct");   
     	$.ajax({
@@ -243,6 +248,7 @@ function addToWishlist(productId) {
             }
         });
     }
+    //this method used to get the products sorted
     function sortProducts() {
     	console.log("sort");  
     	var sort=document.getElementById("sortSelect").value;
@@ -258,6 +264,7 @@ function addToWishlist(productId) {
             }
         });
     }
+    //this method filter the products
     function filterProducts() {
     	console.log("filters");   
     	var filter=document.getElementById("filterSelect").value;
@@ -273,6 +280,7 @@ function addToWishlist(productId) {
             }
         });
     }
+    //this method get all the products when user search something
     function search() {
     	  var searchTerm = document.getElementById("search").value;
     	  $.ajax({
